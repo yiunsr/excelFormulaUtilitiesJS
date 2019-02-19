@@ -1240,14 +1240,14 @@
                 directConversionMap = {
                     "=": "==",
                     "<>": "!=",
-                    "MIN": "Math.min",
-                    "MAX": "Math.max",
-                    "ABS": "Math.abs",
-                    "SUM": "",
-                    "IF": "",
+                    // "MIN": "Math.min",
+                    // "MAX": "Math.max",
+                    // "ABS": "Math.abs",
+                    // "SUM": "",
+                    // "IF": "",
                     "&": "+",
-                    "AND": "",
-                    "OR": ""
+                    // "AND": "",
+                    // "OR": ""
                 },
                 currentFunctionOnStack = functionStack[functionStack.length - 1],
                 useTemplate = false;
