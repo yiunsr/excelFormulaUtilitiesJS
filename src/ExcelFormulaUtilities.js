@@ -1065,14 +1065,14 @@
                 directConversionMap = {
                     "=": "==",
                     "<>": "!=",
-                    // "MIN": "Math.min",
-                    // "MAX": "Math.max",
-                    // "ABS": "Math.abs",
-                    // "SUM": "",
-                    // "IF": "",
+                    //"MIN": "Math.min",
+                    //"MAX": "Math.max",
+                    //"ABS": "Math.abs",
+                    //"SUM": "",
+                    //"IF": "",
                     "&": "+",
-                    // "AND": "",
-                    // "OR": ""
+                    "AND": "",
+                    "OR": ""
                 },
                 currentFunctionOnStack = functionStack[functionStack.length - 1],
                 useTemplate = false;
@@ -1114,25 +1114,25 @@
 
             case TOK_TYPE_ARGUMENT:
                 switch (currentFunctionOnStack.name.toLowerCase()) {
-                case "if":
-                    switch (currentFunctionOnStack.argumentNumber) {
-                    case 0:
-                        outstr = "?";
-                        break;
-                    case 1:
-                        outstr = ":";
-                        break;
-                    }
-                    break;
-                case "sum":
-                    outstr = "+";
-                    break;
-                case "and":
-                    outstr = "&&";
-                    break;
-                case "or":
-                    outstr = "||";
-                    break;
+                // case "if":
+                //     switch (currentFunctionOnStack.argumentNumber) {
+                //     case 0:
+                //         outstr = "?";
+                //         break;
+                //     case 1:
+                //         outstr = ":";
+                //         break;
+                //     }
+                //     break;
+                // case "sum":
+                //     outstr = "+";
+                //     break;
+                // case "and":
+                //     outstr = "&&";
+                //     break;
+                // case "or":
+                //     outstr = "||";
+                //     break;
                 default:
                     outstr = typeof directConversionMap[tokenString.toUpperCase()] === "string" ? directConversionMap[tokenString.toUpperCase()] : tokenString;
                     useTemplate = true;
@@ -1154,33 +1154,33 @@
                         }
                         switch (currentFunctionOnStack.name.toLowerCase()) {
                         // If in the sum function break aout cell names and add
-                        case "sum":
-                            //TODO make sure this is working
-                            if(RegExp(":","gi").test(tokenString)){
-                                outstr = breakOutRanges(tokenString, "+");
-                            } else {
-                                outStr = tokenString;
-                            }
+                        // case "sum":
+                        //     //TODO make sure this is working
+                        //     if(RegExp(":","gi").test(tokenString)){
+                        //         outstr = breakOutRanges(tokenString, "+");
+                        //     } else {
+                        //         outStr = tokenString;
+                        //     }
 
-                            break;
-                        case "and":
-                            //TODO make sure this is working
-                            if(RegExp(":","gi").test(tokenString)){
-                                outstr = breakOutRanges(tokenString, "&&");
-                            } else {
-                                outStr = tokenString;
-                            }
+                        //     break;
+                        // case "and":
+                        //     //TODO make sure this is working
+                        //     if(RegExp(":","gi").test(tokenString)){
+                        //         outstr = breakOutRanges(tokenString, "&&");
+                        //     } else {
+                        //         outStr = tokenString;
+                        //     }
 
-                            break;
-                        case "or":
-                            //TODO make sure this is working
-                            if(RegExp(":","gi").test(tokenString)){
-                                outstr = breakOutRanges(tokenString, "||");
-                            } else {
-                                outStr = tokenString;
-                            }
+                        //     break;
+                        // case "or":
+                        //     //TODO make sure this is working
+                        //     if(RegExp(":","gi").test(tokenString)){
+                        //         outstr = breakOutRanges(tokenString, "||");
+                        //     } else {
+                        //         outStr = tokenString;
+                        //     }
 
-                            break;
+                        //     break;
                         // By Default return an array containing all cell names in array
                         default:
                             // Create array for ranges
@@ -1377,33 +1377,33 @@
 
                         switch (currentFunctionOnStack.name.toLowerCase()) {
                         // If in the sum function break aout cell names and add
-                        case "sum":
-                            //TODO make sure this is working
-                            if(RegExp(":","gi").test(tokenString)){
-                                outstr = breakOutRanges(tokenString, "+");
-                            } else {
-                                outStr = tokenString;
-                            }
+                        // case "sum":
+                        //     //TODO make sure this is working
+                        //     if(RegExp(":","gi").test(tokenString)){
+                        //         outstr = breakOutRanges(tokenString, "+");
+                        //     } else {
+                        //         outStr = tokenString;
+                        //     }
 
-                            break;
-                        case "and":
-                            //TODO make sure this is working
-                            if(RegExp(":","gi").test(tokenString)){
-                                outstr = breakOutRanges(tokenString, " and ");
-                            } else {
-                                outStr = tokenString;
-                            }
+                        //     break;
+                        // case "and":
+                        //     //TODO make sure this is working
+                        //     if(RegExp(":","gi").test(tokenString)){
+                        //         outstr = breakOutRanges(tokenString, " and ");
+                        //     } else {
+                        //         outStr = tokenString;
+                        //     }
 
-                            break;
-                        case "or":
-                            //TODO make sure this is working
-                            if(RegExp(":","gi").test(tokenString)){
-                                outstr = breakOutRanges(tokenString, " or ");
-                            } else {
-                                outStr = tokenString;
-                            }
+                        //     break;
+                        // case "or":
+                        //     //TODO make sure this is working
+                        //     if(RegExp(":","gi").test(tokenString)){
+                        //         outstr = breakOutRanges(tokenString, " or ");
+                        //     } else {
+                        //         outStr = tokenString;
+                        //     }
 
-                            break;
+                        //     break;
                         // By Default return an array containing all cell names in array
                         default:
                             // Create array for ranges
